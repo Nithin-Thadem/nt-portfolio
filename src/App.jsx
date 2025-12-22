@@ -8,10 +8,16 @@ import ShowcaseSection from "./sections/ShowcaseSection";
 import LogoShowcase from "./sections/LogoShowcase";
 import FeatureCards from "./sections/FeatureCards";
 import Navbar from "./components/NavBar";
-import Certifications from "./sections/Certifications"; // Import Certifications
+import Certifications from "./sections/Certifications";
+import TermsAndConditions from "./sections/TermsAndConditions";
+import ScrollProgress from "./components/ScrollProgress";
+import ScrollToTop from "./components/ScrollToTop";
+import { ToastProvider } from "./components/Toast";
+import { Routes, Route } from "react-router-dom";
 
-const App = () => (
+const PortfolioPage = () => (
     <>
+        <ScrollProgress />
         <Navbar />
         <Hero />
         <ShowcaseSection />
@@ -23,7 +29,17 @@ const App = () => (
         <Testimonials />
         <Contact />
         <Footer />
+        <ScrollToTop />
     </>
+);
+
+const App = () => (
+    <ToastProvider>
+        <Routes>
+            <Route path="/" element={<PortfolioPage />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        </Routes>
+    </ToastProvider>
 );
 
 export default App;

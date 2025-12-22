@@ -1,11 +1,17 @@
 import { socialImgs } from "../constants";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="flex flex-col justify-center">
-          <p>Terms & Conditions</p>
+          <Link 
+            to="/terms-and-conditions" 
+            className="hover:text-blue-400 transition-colors duration-300"
+          >
+            Terms & Conditions
+          </Link>
         </div>
         <div className="socials">
           {socialImgs.map((socialImg, index) => (

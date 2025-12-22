@@ -1,89 +1,114 @@
-WelCome to my Portfolio, Give me a star if you liked it.
+# Nithin Thadem | DevOps Engineer & Cloud Architect
 
-## 📋 <a name="table">Table of Contents</a>
+## About Me
 
-1. 🤖 [Introduction](#introduction)
-2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [Features](#features)
-4. 🤸 [Quick Start](#quick-start)
-6. 🚀 [More](#more)
+I'm a **Senior DevOps Engineer** specializing in cloud infrastructure, containerization, and automated CI/CD pipelines. With extensive experience across healthcare, education, and technology sectors, I design and maintain scalable, secure cloud solutions that power critical business applications.
 
-## <a name="introduction">🤖 Introduction</a>
+---
 
-The 3D Portfolio project is a highly engaging personal website that features animated 3D scenes, smooth camera transitions, interactive model showcases, and responsive design. It’s ideal for developers, designers, or freelancers looking to stand out in the digital crowd.
-## <a name="tech-stack">⚙️ Tech Stack</a>
+## Professional Summary
 
-- Three.js
-- React Three Fiber
-- Drei
-- GSAP
-- Tailwind CSS
-- Vite
-- React 19
+**Years of Experience:** 3+ years  
+**Location:** Pisa, Italy  
+**Work Authorization:** Italian Permit  
+**Contact:** nithin.thadem@gmail.com  
 
-## <a name="features">🔋 Features</a>
+**Core Expertise:**
+- Cloud Infrastructure (Azure, AWS, GCP)
+- Container Orchestration (Kubernetes, Docker)
+- Infrastructure as Code (Terraform, Ansible)
+- CI/CD Pipelines (GitLab CI/CD, GitHub Actions)
+- Monitoring & Observability (Grafana, Prometheus)
+- Security & Identity (Keycloak, OAuth2)
 
-### Features of the 3D Portfolio Project
+---
 
-👉 Animated 3D models and reveal animations
+## Technical Skills
 
-👉 Realistic lighting and shadows
+### Cloud Platforms
+- **Azure:** AKS, Container Apps, App Services
+- **AWS:** EKS, EC2, S3, RDS, VPC
+- **GCP:** GKE, Cloud Run, Cloud SQL
 
-👉 GSAP-powered scroll interactions
+### DevOps Tools
+- **Containerization:** Docker, Kubernetes, Helm
+- **Infrastructure as Code:** Terraform, Ansible
+- **CI/CD:** GitLab CI/CD, GitHub Actions, ArgoCD
+- **Monitoring:** Grafana, Prometheus, ELK Stack
+- **Security:** Keycloak, Firebase Authentication
 
-👉 Responsive design with Tailwind CSS and Flexbox/Grid
+### Development
+- **Languages:** Python, JavaScript/TypeScript, Java
+- **Frameworks:** Spring Boot, React, Node.js
+- **Databases:** PostgreSQL, MongoDB, Redis
+- **Messaging:** Apache Kafka, RabbitMQ
 
-👉 Micro Interactions
+---
 
-👉 Multi-section layout (About, Projects, Contact)
+## Professional Experience
 
-👉 Mobile optimized 3D experience
+### Senior DevOps Engineer  
+**Millennium S.p.A.** | Healthcare Software | Dec 2025 - Present
+- Leading DevOps transformation for Millewin/Milleweb healthcare EMR systems
+- Architecting self-hosted Kubernetes clusters and Azure Container Apps
+- Implementing CI/CD pipelines with GitLab for Spring Boot microservices
+- Managing Kafka infrastructure for real-time medical data processing
+- Securing patient data access with Keycloak identity management
 
-and many more, including code architecture and reusability.
+### Freelance DevOps Consultant  
+**Aigot** | EdTech SaaS | Oct 2024 - Dec 2025
+- Engineered scalable AWS EKS infrastructure for educational platform
+- Implemented Terraform-based IaC reducing manual setup by 90%
+- Deployed comprehensive monitoring with Prometheus/Grafana
+- Automated Docker CI/CD pipelines cutting deployment time by 80%
 
-## <a name="quick-start">🤸 Quick Start</a>
+### DevOps Engineer  
+**Zemoso Technologies** | IT Consulting | Apr 2024 - Oct 2024
+- Containerized legacy applications with Kubernetes migration
+- Built GitOps workflows using ArgoCD and Jenkins
+- Centralized logging in ELK stack reducing MTTR by 50%
 
-Follow these steps to set up the project locally on your machine.
+---
 
-**Prerequisites**
+## Education & Certifications
 
-Make sure you have the following installed on your machine:
+### Professional Certifications
+- **Certified Kubernetes Administrator (CKA)** - In Progress
+- **Certified Kubernetes Application Developer (CKAD)** - In Progress
+- **Google Cloud Professional Cloud Architect** - Certified
+- **AWS Certified Solutions Architect** - Certified
 
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/en)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
+### Technical Education
+- **Master's Degree** - Automation Engineering and Control Of Complex Systems
+- **Bachelor's Degree** - Electrical and Electronics Engineering
+- **Polytechnic** - Electrical and Electronics Engineering
+---
 
-**Cloning the Repository**
+## Key Achievements
 
-```bash
-git clone https://github.com/adrianhajdin/nt-portfolio.git
-cd nt-portfolio
-```
+🏆 **Infrastructure Optimization:** Reduced cloud costs by 35% through resource optimization  
+🏆 **Deployment Efficiency:** Cut deployment time from hours to minutes  
+🏆 **System Reliability:** Maintained 99.9% uptime SLA across production systems  
+🏆 **Automation Success:** Eliminated 90% of manual infrastructure tasks  
+🏆 **Team Leadership:** Trained 10+ engineers on DevOps best practices  
 
-**Installation**
+---
 
-Install the project dependencies using npm:
+## Connect With Me
 
-```bash
-npm install
-```
+**📧 Email:** nithin.thadem@gmail.com  
+**💼 LinkedIn:** [linkedin.com/in/thadem-n-790bb520a](https://www.linkedin.com/in/thadem-n-790bb520a)  
+**🌐 Portfolio:** [thademinfra.tech](https://thademinfra.tech)  
+**📍 Location:** Pisa, Italy  
 
-**Set Up Environment Variables**
+---
 
-Create a new file named `.env` in the root of your project and add the following content:
+## About This Portfolio
 
-```env
-VITE_APP_EMAILJS_SERVICE_ID=
-VITE_APP_EMAILJS_TEMPLATE_ID=
-VITE_APP_EMAILJS_PUBLIC_KEY=
-```
+This interactive 3D portfolio showcases my DevOps expertise and professional journey through engaging visual design. Built with modern web technologies to demonstrate technical proficiency in both infrastructure and frontend development.
 
-Replace the placeholder values with your actual **[EmailJS](https://www.emailjs.com/)** credentials.
+**Tech Stack:** React, Three.js, GSAP, Tailwind CSS, Vite
 
-**Running the Project**
+---
 
-```bash
-npm run dev
-```
-
-Open [http://localhost:5173](http://localhost:5173/) in your browser to view the project.
+*© 2025 Nithin Thadem. All rights reserved.*

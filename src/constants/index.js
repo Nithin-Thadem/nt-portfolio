@@ -290,11 +290,26 @@ const techStackIcons = [
 
 const expCards = [
     {
+    review: "Leading DevOps transformation for Millennium S.p.A.'s healthcare software suite, architecting Azure Kubernetes infrastructure for Millewin and Milleweb electronic medical record systems serving 18,000+ medical practitioners across Italy with GDPR-compliant patient data management.",
+    imgPath: "/images/Millennium.png",
+    logoPath: "/images/millenniumlogo.jpg",
+    title: "Senior DevOps Engineer",
+    date: "December 2025 - Present",
+    responsibilities: [
+      "Architecting and managing self-hosted Kubernetes clusters and Azure Container Apps with Terraform for high-availability healthcare SaaS applications serving thousands of general practitioners and pediatricians",
+      "Implementing robust CI/CD pipelines using GitLab CI/CD for Spring Boot microservices, Maven-based Java applications, and PostgreSQL databases managing sensitive patient medical records",
+      "Deploying and managing Apache Kafka messaging infrastructure for real-time processing of medical prescriptions, diagnostic reports, and healthcare data exchanges",
+      "Securing applications with Keycloak identity and access management, implementing OAuth2/OpenID Connect authentication for healthcare professionals accessing patient data",
+      "Managing container orchestration with Docker and self-hosted Kubernetes clusters alongside Azure Container Apps, ensuring HIPAA/GDPR-compliant deployments across multiple Azure regions with 99.9% uptime for critical medical services",
+      "Automating infrastructure provisioning with Ansible for Linux-based production environments and supporting Firebase services for patient mobile applications"
+    ],
+  },
+  {
     review: "Nithin transformed our GCP environment at aiGoT—his Terraform modules and automated pipelines on GKE and Cloud Run cut deployment toil by 90% and kept us rock-solid at 99.9% uptime.",
     imgPath: "/images/Aigot-logo.png",
     logoPath: "/images/Aigot-logo.png",
     title: "DevOps | SRE | Cloud Engineer",
-    date: "October 2024 - Present",
+    date: "October 2024 - December 2025",
     responsibilities: [
       "Defined and managed GCP infrastructure via Terraform, cutting manual setup time by 90%.",
       "Automated Docker-based CI/CD pipelines with GitHub, reducing deploys from hours to minutes.",
@@ -306,7 +321,7 @@ const expCards = [
     review: "Under Nithin’s guidance, we containerized legacy services in GKE and implemented GitOps workflows—our release cadence doubled and rollbacks became nearly unheard of.",
     imgPath: "/images/Zemoso-small.png",
     logoPath: "/images/Zemoso.png",
-    title: "DevOps Engineer (Zemoso Technologies)",
+    title: "DevOps Engineer",
     date: "April 2024 - October 2024",
     responsibilities: [
       "Containerized legacy apps with Docker and migrated them into GKE using Helm charts for zero-downtime rollouts.",
@@ -319,7 +334,7 @@ const expCards = [
     review: "Nithin’s comprehensive quality and performance testing of washing machines, tumble dryers, dishwashers, and washer-dryers using Python/Robot-framework ensured our products shipped with rock-solid reliability and drove a 30% reduction in field failures.",
     imgPath: "/images/elux.png",
     logoPath: "/images/Electrolux-logo.png",
-    title: "System validation and connectivity engineer (Electrolux Italia)",
+    title: "SysVal and connectivity engineer",
     date: "May 2023 - January 2024",
     responsibilities: [
       "Developed and executed end-to-end quality and performance tests for washing machines, tumble dryers, dishwashers, and washer-dryers using Python/Robot-framework.",

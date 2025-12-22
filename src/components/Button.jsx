@@ -1,40 +1,88 @@
+import gsap from "gsap";
+
 /**
- * A reusable CTA button component.
- * When clicked, it scrolls smoothly to the section with ID "counter",
- * with a small offset from the top for better visual placement.
+ * A modern CTA button component with gradient styling and animations.
+ * Uses GSAP for smooth scrolling to avoid conflicts with Three.js render loop.
  */
 
-const Button = ({ text, className, id }) => {
+const Button = ({ text, className, id, variant = "primary" }) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    const target = document.getElementById(id || "counter");
+
+    if (target) {
+      const offset = window.innerHeight * 0.15;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+      // Use GSAP for smooth scrolling - doesn't conflict with Three.js
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: targetPosition, autoKill: false },
+        ease: "power2.inOut",
+      });
+    }
+  };
+
+  // Primary variant - gradient background
+  if (variant === "primary") {
+    return (
+      <button
+        onClick={handleClick}
+        className={`${className ?? ""} modern-cta-btn group`}
+      >
+        <span className="btn-gradient"></span>
+        <span className="btn-content">
+          <span className="btn-text">{text}</span>
+          <span className="btn-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </span>
+        </span>
+        <span className="btn-shine"></span>
+      </button>
+    );
+  }
+
+  // Secondary variant - outline style
   return (
-    <a
-      onClick={(e) => {
-        e.preventDefault(); // Stop the link from jumping instantly
-
-        const target = document.getElementById("counter"); // Find the section with ID "counter"
-
-        // Only scroll if we found the section and an ID is passed in
-        // taht prevents the contact button from scrolling to the top
-        if (target && id) {
-          const offset = window.innerHeight * 0.15; // Leave a bit of space at the top
-
-          // Calculate how far down the page we need to scroll
-          const top =
-            target.getBoundingClientRect().top + window.pageYOffset - offset;
-
-          // Scroll smoothly to that position
-          window.scrollTo({ top, behavior: "smooth" });
-        }
-      }}
-      className={`${className ?? ""} cta-wrapper`} // Add base + extra class names
+    <button
+      onClick={handleClick}
+      className={`${className ?? ""} modern-cta-btn outline group`}
     >
-      <div className="cta-button group">
-        <div className="bg-circle" />
-        <p className="text">{text}</p>
-        <div className="arrow-wrapper">
-          <img src="/images/arrow-down.svg" alt="arrow" />
-        </div>
-      </div>
-    </a>
+      <span className="btn-border"></span>
+      <span className="btn-content">
+        <span className="btn-text">{text}</span>
+        <span className="btn-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M5 12h14"></path>
+            <path d="M12 5l7 7-7 7"></path>
+          </svg>
+        </span>
+      </span>
+    </button>
   );
 };
 

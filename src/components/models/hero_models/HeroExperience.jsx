@@ -6,25 +6,30 @@ import { Suspense, useState, useEffect } from "react";
 import { Room } from "./Room";
 import HeroLights from "./HeroLights";
 import Particles from "./Particles";
+import LoadingScreen from "../../LoadingScreen";
+import { useProgressiveLoad, usePerformanceMode, getQualitySettings } from "../../../utils/modelLoader";
 
 const HeroExperience = () => {
-    const isMobile = useMediaQuery({query: "(max-width: 768px)"});
-    const isTablet = useMediaQuery({query: "(max-width: 1024px)"});
+    const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+    const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
-    // State to track whether the 3D model has loaded
-    const [, setIsLoaded] = useState(false);
+    // Progressive loading - defer hero 3D by 1 second for faster initial paint
+    const shouldLoad = useProgressiveLoad('deferred');
 
-    // Simulate loading delay or handle actual asset loading
-    useEffect(() => {
-        // Simulate a delay for loading assets (replace with actual loader logic)
-        const timer = setTimeout(() => {
-            setIsLoaded(true);
-        }, 3000); // Adjust the delay based on your asset loading time
+    // Performance monitoring
+    const performanceMode = usePerformanceMode();
+    const quality = getQualitySettings(performanceMode);
 
-        return () => clearTimeout(timer); // Cleanup timer on unmount
-    }, []);
-
-
+    // Show placeholder while waiting for deferred load
+    if (!shouldLoad) {
+        return (
+            <div className="hero-placeholder">
+                <div className="hero-placeholder-content">
+                    <div className="loading-pulse"></div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <Canvas
@@ -34,31 +39,37 @@ const HeroExperience = () => {
                 left: 0,
                 width: "100%",
                 height: "100%",
-                zIndex: 0, // Ensure the canvas is behind DOM elements
+                zIndex: 0,
             }}
-            camera={{position: [0, 0, 15], fov: 45}}
+            camera={{ position: [0, 0, 15], fov: 45 }}
+            dpr={quality.pixelRatio}
+            gl={{
+                antialias: quality.antialias,
+                powerPreference: "high-performance",
+            }}
         >
             {/* Deep blue ambient light */}
-            <ambientLight intensity={4} color="#90d4ff"/>
-            {/* Configure OrbitControls to enable panning and control zoom based on device type */}
+            <ambientLight intensity={4} color="#90d4ff" />
+
+            {/* Configure OrbitControls */}
             <OrbitControls
-                enablePan={false} // Enable panning (dragging)
-                enableZoom={!isTablet} // Disables zoom on tablets
-                maxDistance={20} // Maximum distance for zooming out
-                minDistance={5} // Minimum distance for zooming in
-                minPolarAngle={Math.PI / 5} // Minimum angle for vertical rotation
-                maxPolarAngle={Math.PI / 2} // Maximum angle for vertical rotation
+                enablePan={false}
+                enableZoom={!isTablet}
+                maxDistance={20}
+                minDistance={5}
+                minPolarAngle={Math.PI / 5}
+                maxPolarAngle={Math.PI / 2}
             />
 
-            <Suspense fallback={null}>
-                <HeroLights/>
-                <Particles count={50}/>
+            <Suspense fallback={<LoadingScreen />}>
+                <HeroLights />
+                <Particles count={quality.particleCount} />
                 <group
                     scale={isMobile ? 0.7 : 1}
                     position={[0, -3.5, 0]}
                     rotation={[0, 0, 0]}
                 >
-                    <Room/>
+                    <Room />
                 </group>
             </Suspense>
         </Canvas>

@@ -5,17 +5,34 @@ import Computer from "./Computer";
 
 const ContactExperience = () => {
   return (
-    <Canvas shadows camera={{ position: [0, 3, 7], fov: 45 }}>
-      <ambientLight intensity={0.5} color="#fff4e6" />
+    <Canvas 
+      shadows 
+      camera={{ position: [0, 3, 7], fov: 45 }}
+      onCreated={({ gl }) => {
+        gl.setClearColor('#0f172a'); // Dark background
+      }}
+    >
+      {/* Base ambient light */}
+      <ambientLight intensity={0.8} color="#ffffff" />
 
-      <directionalLight position={[5, 5, 3]} intensity={2.5} color="#ffd9b3" />
-
+      {/* Main directional light from front-top */}
       <directionalLight
-        position={[5, 9, 1]}
+        position={[0, 5, 5]}
+        intensity={3}
+        color="#ffffff"
         castShadow
-        intensity={2.5}
-        color="#ffd9b3"
       />
+
+      {/* Fill light from side */}
+      <directionalLight
+        position={[-3, 3, 3]}
+        intensity={1}
+        color="#ffffff"
+        castShadow
+      />
+
+      {/* Optional: Point light for extra highlights */}
+      <pointLight position={[0, 4, 4]} intensity={1} color="#ffffff" />
 
       <OrbitControls
         enableZoom={false}
@@ -30,11 +47,11 @@ const ContactExperience = () => {
           rotation={[-Math.PI / 2, 0, 0]}
         >
           <planeGeometry args={[30, 30]} />
-          <meshStandardMaterial color="#a46b2d" />
+          <meshStandardMaterial color="#0f172a" />
         </mesh>
       </group>
 
-      <group scale={0.03} position={[0, -1.49, -2]} castShadow>
+      <group scale={0.03} position={[0, -1.49, -2]} castShadow receiveShadow>
         <Computer />
       </group>
     </Canvas>

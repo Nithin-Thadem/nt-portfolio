@@ -1,47 +1,66 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useMemo } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { EffectComposer, SelectiveBloom } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import * as THREE from "three";
+import { usePerformanceMode, getQualitySettings } from "../../../utils/modelLoader";
 
 export function Room(props) {
     // Refs for character, screens, and planet
-    const groupRef = useRef(); // For character animations
-    const screensRef = useRef(); // For screen model
-    //const planetRef = useRef(); // For planet model
+    const groupRef = useRef();
+    const screensRef = useRef();
+
+    // Performance monitoring
+    const performanceMode = usePerformanceMode();
+    const quality = getQualitySettings(performanceMode);
 
     // Load the GLB models
     const characterGltf = useGLTF("/models/nit.glb");
     const screenGltf = useGLTF("/models/scrn.glb");
-    //const planetGltf = useGLTF("/models/starry_night.glb"); // Load the planet model
 
     // Extract animations for the character
     const { actions } = useAnimations(characterGltf.animations, groupRef);
 
-    // Debug: Log the GLTF data
-    console.log("Character GLTF Data:", characterGltf);
-    console.log("Screen GLTF Data:", screenGltf);
-    //console.log("Planet GLTF Data:", planetGltf);
+    // Cache geometry references using useMemo (performance optimization)
+    const geometries = useMemo(() => {
+        const findChild = (name) =>
+            characterGltf.scene.children.find((child) => child.name === name);
 
-    // Use existing materials from the .glb files
-    const bodyMaterial = characterGltf.materials?.avaturn_body_material;
-    const hair0Material = characterGltf.materials?.avaturn_hair_0_material;
-    const lookMaterial = characterGltf.materials?.avaturn_look_0_material;
-    const shoesMaterial = characterGltf.materials?.avaturn_shoes_0_material;
+        const body = findChild("avaturn_body");
+        const hair = findChild("avaturn_hair_0");
+        const look = findChild("avaturn_look_0");
+        const shoes = findChild("avaturn_shoes_0");
+        const glasses = findChild("avaturn_glasses_0");
 
-    // Define a custom material for the glasses if needed
-    const glassesMaterial = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        transparent: true,
-        opacity: 0.8,
-    });
+        return {
+            body: body?.geometry,
+            hair: hair?.geometry,
+            look: look?.geometry,
+            shoes: shoes?.geometry,
+            glasses: glasses?.geometry,
+        };
+    }, [characterGltf]);
+
+    // Use existing materials from the .glb files (cached)
+    const materials = useMemo(() => ({
+        body: characterGltf.materials?.avaturn_body_material,
+        hair: characterGltf.materials?.avaturn_hair_0_material,
+        look: characterGltf.materials?.avaturn_look_0_material,
+        shoes: characterGltf.materials?.avaturn_shoes_0_material,
+        glasses: characterGltf.materials?.avaturn_glasses_0_material ||
+            new THREE.MeshStandardMaterial({
+                color: 0xffffff,
+                transparent: true,
+                opacity: 0.8,
+            }),
+    }), [characterGltf]);
 
     // Play animations when the component mounts
     useEffect(() => {
         if (actions) {
             Object.values(actions).forEach((action) => {
                 try {
-                    action.play(); // Try to play the animation
+                    action.play();
                 } catch (error) {
                     console.warn(`Failed to play animation: ${error.message}`);
                 }
@@ -49,85 +68,106 @@ export function Room(props) {
         }
     }, [actions]);
 
+    // Cleanup on unmount
+    useEffect(() => {
+        return () => {
+            characterGltf.scene.traverse((child) => {
+                if (child.isMesh) {
+                    child.geometry?.dispose();
+                    if (child.material) {
+                        if (Array.isArray(child.material)) {
+                            child.material.forEach((m) => m.dispose());
+                        } else {
+                            child.material.dispose();
+                        }
+                    }
+                }
+            });
+            screenGltf.scene.traverse((child) => {
+                if (child.isMesh) {
+                    child.geometry?.dispose();
+                    if (child.material) {
+                        if (Array.isArray(child.material)) {
+                            child.material.forEach((m) => m.dispose());
+                        } else {
+                            child.material.dispose();
+                        }
+                    }
+                }
+            });
+        };
+    }, [characterGltf, screenGltf]);
+
     return (
-        <group {...props} dispose={null}>
+        <group {...props}>
             {/* Enhanced Lighting */}
-            <ambientLight intensity={0.4} color="#ffffff" /> {/* Soft ambient light */}
+            <ambientLight intensity={0.4} color="#ffffff" />
             <directionalLight
                 position={[1, 1, 1]}
                 intensity={1}
                 color="#ffffff"
-            /> {/* Main directional light */}
+            />
             <pointLight
                 position={[5, 5, 5]}
                 intensity={2}
                 color="#ffffff"
-            /> {/* Additional point light for depth */}
-
-            {/* Render the planet as the deepest background */}
-            {/*<mesh
-                ref={planetRef}
-                position={[0, 5, -50]} // Move further back
-                scale={1000} // Increase scale to fill the background
-            >
-                <primitive object={planetGltf.scene} />
-            </mesh>*/}
+            />
 
             {/* Render the screen model as background */}
             <mesh
                 ref={screensRef}
-                position={[0, 5, -26]} // Position the screen behind the character
-                scale={25} // Scale the screen model as needed
+                position={[0, 5, -26]}
+                scale={25}
             >
                 <primitive object={screenGltf.scene} />
             </mesh>
 
-            {/* Conditionally render SelectiveBloom if screensRef is valid */}
-            {screensRef.current && (
-                <EffectComposer>
+            {/* Conditionally render SelectiveBloom based on performance */}
+            {quality.postprocessing && screensRef.current && (
+                <EffectComposer multisampling={0}>
                     <SelectiveBloom
                         selection={screensRef.current}
-                        intensity={1.0}
-                        luminanceThreshold={0.2}
-                        luminanceSmoothing={0.9}
+                        intensity={quality.bloomIntensity}
+                        luminanceThreshold={0.3}
+                        luminanceSmoothing={0.7}
                         blendFunction={BlendFunction.ADD}
                     />
                 </EffectComposer>
             )}
 
             {/* Group for character animations */}
-            <group ref={groupRef} scale={3.0} position={[0, 0, 0]}> {/* Center the character */}
+            <group ref={groupRef} scale={3.0} position={[0, 0, 0]}>
                 {/* Render the avatar body */}
                 <mesh
-                    geometry={characterGltf.scene.children.find((child) => child.name === "avaturn_body")?.geometry}
-                    material={bodyMaterial}
+                    geometry={geometries.body}
+                    material={materials.body}
                 >
-                    <primitive object={characterGltf.scene} /> {/* Ensure the entire scene is rendered */}
+                    <primitive object={characterGltf.scene} />
                 </mesh>
 
                 {/* Render the first hairstyle */}
                 <mesh
-                    geometry={characterGltf.scene.children.find((child) => child.name === "avaturn_hair_0")?.geometry}
-                    material={hair0Material}
+                    geometry={geometries.hair}
+                    material={materials.hair}
                 />
 
                 {/* Render the facial features ("look") */}
                 <mesh
-                    geometry={characterGltf.scene.children.find((child) => child.name === "avaturn_look_0")?.geometry}
-                    material={lookMaterial}
+                    geometry={geometries.look}
+                    material={materials.look}
                 />
 
                 {/* Render the shoes */}
                 <mesh
-                    geometry={characterGltf.scene.children.find((child) => child.name === "avaturn_shoes_0")?.geometry}
-                    material={shoesMaterial}
+                    geometry={geometries.shoes}
+                    material={materials.shoes}
                 />
 
                 {/* Render the glasses */}
-                {characterGltf.scene.children.find((child) => child.name === "avaturn_glasses_0") && (
+                {geometries.glasses && (
                     <mesh
-                        geometry={characterGltf.scene.children.find((child) => child.name === "avaturn_glasses_0")?.geometry}
-                        material={characterGltf.materials?.avaturn_glasses_0_material || glassesMaterial}
+                        geometry={geometries.glasses}
+                        material={materials.glasses}
                     />
                 )}
             </group>
@@ -138,4 +178,3 @@ export function Room(props) {
 // Preload all models
 useGLTF.preload("/models/nit.glb");
 useGLTF.preload("/models/scrn.glb");
-//useGLTF.preload("/models/starry_night.glb");

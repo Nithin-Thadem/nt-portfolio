@@ -3,9 +3,11 @@ import emailjs from "@emailjs/browser";
 
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/models/contact/ContactExperience";
+import { useToast } from "../components/Toast";
 
 const Contact = () => {
   const formRef = useRef(null);
+  const toast = useToast();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -20,7 +22,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loading state
+    setLoading(true);
 
     try {
       await emailjs.sendForm(
@@ -30,12 +32,16 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       );
 
-      // Reset form and stop loading
+      // Success notification
+      toast.success("Message sent successfully! I'll get back to you soon.");
+
+      // Reset form
       setForm({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error("EmailJS Error:", error);
+      toast.error("Failed to send message. Please try again or email me directly.");
     } finally {
-      setLoading(false); // Always stop loading, even on error
+      setLoading(false);
     }
   };
 
@@ -43,8 +49,8 @@ const Contact = () => {
     <section id="contact" className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
-          title="Get in Touch – Let’s Connect"
-          sub="💬 Have questions or ideas? Let’s talk! 🚀"
+          title="Get in Touch - Let's Connect"
+          sub="Have questions or ideas? Let's talk!"
         />
         <div className="grid-12-cols mt-16">
           <div className="xl:col-span-5">
@@ -54,7 +60,7 @@ const Contact = () => {
                 onSubmit={handleSubmit}
                 className="w-full flex flex-col gap-7"
               >
-                <div>
+                <div className="form-group">
                   <label htmlFor="name">Your name</label>
                   <input
                     type="text"
@@ -62,12 +68,13 @@ const Contact = () => {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="What’s your good name?"
+                    placeholder="What's your good name?"
                     required
+                    className="form-input"
                   />
                 </div>
 
-                <div>
+                <div className="form-group">
                   <label htmlFor="email">Your Email</label>
                   <input
                     type="email"
@@ -75,12 +82,13 @@ const Contact = () => {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="What’s your email address?"
+                    placeholder="What's your email address?"
                     required
+                    className="form-input"
                   />
                 </div>
 
-                <div>
+                <div className="form-group">
                   <label htmlFor="message">Your Message</label>
                   <textarea
                     id="message"
@@ -90,19 +98,43 @@ const Contact = () => {
                     placeholder="How can I help you?"
                     rows="5"
                     required
+                    className="form-input"
                   />
                 </div>
 
-                <button type="submit" disabled={loading}>
-                  <div className="cta-button group">
-                    <div className="bg-circle" />
-                    <p className="text">
-                      {loading ? "Sending..." : "Send Message"}
-                    </p>
-                    <div className="arrow-wrapper">
-                      <img src="/images/arrow-down.svg" alt="arrow" />
-                    </div>
-                  </div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="send-message-btn group"
+                >
+                  <span className="btn-bg"></span>
+                  <span className="btn-content">
+                    {loading ? (
+                      <>
+                        <span className="btn-spinner"></span>
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Send Message</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="btn-icon"
+                        >
+                          <line x1="22" y1="2" x2="11" y2="13"></line>
+                          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                      </>
+                    )}
+                  </span>
                 </button>
               </form>
             </div>

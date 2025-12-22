@@ -10,9 +10,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
   useGSAP(() => {
-    // Loop through each timeline card and animate them in
+    // Loop through each experience card wrapper and animate them in
     // as the user scrolls to each card
-    gsap.utils.toArray(".timeline-card").forEach((card) => {
+    gsap.utils.toArray(".exp-card-wrapper").forEach((card) => {
       // Animate the card coming in from the left
       // and fade in
       gsap.from(card, {
@@ -87,6 +87,32 @@ const Experience = () => {
         },
       });
     }, "<"); // position parameter - insert at the start of the animation
+
+    // Loop through each GlowCard and animate them in
+    // as the user scrolls to each company card
+    gsap.utils.toArray(".timeline-card").forEach((card) => {
+      // Animate the card from the right side
+      // and fade in
+      gsap.from(card, {
+        // Move the card in from the right
+        xPercent: 50,
+        // Make the card invisible at the start
+        opacity: 0,
+        // Set the origin of the animation to the right side of the card
+        transformOrigin: "right right",
+        // Animate over 1.2 seconds
+        duration: 1.2,
+        // Use a power2 ease-in-out curve
+        ease: "power2.inOut",
+        // Trigger the animation when the card is 70% down the screen
+        scrollTrigger: {
+          // The card is the trigger element
+          trigger: card,
+          // Trigger the animation when the card is 70% down the screen
+          start: "top 70%",
+        },
+      });
+    }, "<0.3"); // position parameter with slight delay
   }, []);
 
   return (
@@ -122,21 +148,25 @@ const Experience = () => {
                     </div>
                     <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
                       <div className="timeline-logo">
-                        <img src={card.logoPath} alt="logo" />
+                        <img src={card.logoPath} alt={`${card.title} company logo`} className="w-12 h-12 object-contain" />
+                        <p className="text-xs text-gray-400 mt-2 font-medium">{card.title.split(' at ')[1] || card.title}</p>
                       </div>
                       <div>
-                        <h1 className="font-semibold text-3xl">{card.title}</h1>
-                        <p className="my-5 text-white-50">
-                          🗓️&nbsp;{card.date}
-                        </p>
-                        <p className="text-[#839CB5] italic">
-                          Responsibilities
-                        </p>
-                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
+                        <h1 className="font-bold text-4xl text-white mb-2">{card.title}</h1>
+                        <div className="flex items-center gap-3 my-4">
+                          <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium border border-blue-500/30">
+                            📅 {card.date}
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-semibold text-white mb-4 border-l-4 border-blue-500 pl-4">
+                          Key Responsibilities
+                        </h3>
+                        <ul className="space-y-4 mt-6">
                           {card.responsibilities.map(
                             (responsibility, index) => (
-                              <li key={index} className="text-lg">
-                                {responsibility}
+                              <li key={index} className="flex items-start gap-3 text-gray-300 leading-relaxed">
+                                <span className="text-blue-400 text-xl mt-1">▸</span>
+                                <span className="text-lg">{responsibility}</span>
                               </li>
                             )
                           )}

@@ -5,18 +5,17 @@ import { navLinks } from "../constants";
 const NavBar = () => {
   // track if the user has scrolled down the page
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     // create an event listener for when the user scrolls
     const handleScroll = () => {
-      // check if the user has scrolled down at least 10px
-      // if so, set the state to true
       const isScrolled = window.scrollY > 10;
       setScrolled(isScrolled);
     };
 
-    // add the event listener to the window
-    window.addEventListener("scroll", handleScroll);
+    // add the event listener with passive option for better performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     // cleanup the event listener when the component is unmounted
     return () => window.removeEventListener("scroll", handleScroll);
@@ -26,7 +25,10 @@ const NavBar = () => {
     <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner">
         <a href="#hero" className="logo">
-          Nithin T
+          <span className="logo-text">
+            <span className="logo-first">Nithin</span>
+            <span className="logo-last">T</span>
+          </span>
         </a>
 
         <nav className="desktop">
@@ -41,19 +43,98 @@ const NavBar = () => {
             ))}
           </ul>
         </nav>
-        <div className='flex items-center gap-5'>
+
+        {/* Mobile menu button */}
+        <button
+          className="mobile-menu-btn md:hidden"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className={`hamburger ${menuOpen ? 'open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+
+        {/* Desktop buttons */}
+        <div className='hidden md:flex items-center gap-4'>
           <a
+            href="/CV/cv.pdf"
+            download="Nithin_CV.pdf"
+            className="download-cv-btn group"
+          >
+            <span className="btn-bg"></span>
+            <span className="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </span>
+            <span className="btn-text">Download CV</span>
+          </a>
+          <a href="#contact" className="contact-me-btn group">
+            <span className="btn-bg"></span>
+            <span className="btn-text">Contact Me</span>
+            <span className="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        {/* Mobile menu */}
+        <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+          <a href="#hero" className="mobile-logo" onClick={() => setMenuOpen(false)}>
+            <span className="logo-first">Nithin</span>
+            <span className="logo-last">T</span>
+          </a>
+          <nav>
+            <ul>
+              {navLinks.map(({ link, name }) => (
+                <li key={name}>
+                  <a href={link} onClick={() => setMenuOpen(false)}>
+                    {name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="mobile-menu-buttons">
+            <a
               href="/CV/cv.pdf"
               download="Nithin_CV.pdf"
-              className="cursor-pointer bg-white p-2 px-5 rounded-md"
-          >
-            <span className='text-black'>Download CV</span>
-          </a>
-          <a href="#contact" className="contact-btn group">
-            <div className="inner">
-              <span>Contact me</span>
-            </div>
-          </a>
+              className="download-cv-btn mobile group"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span className="btn-bg"></span>
+              <span className="btn-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+              </span>
+              <span className="btn-text">Download CV</span>
+            </a>
+            <a
+              href="#contact"
+              className="contact-me-btn mobile group"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span className="btn-bg"></span>
+              <span className="btn-text">Contact Me</span>
+              <span className="btn-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </header>
