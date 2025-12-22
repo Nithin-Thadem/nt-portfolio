@@ -1,0 +1,215 @@
+name: CI/CD Pipeline
+
+# Controls when the workflow will run
+on:
+  # Triggers on pushes to main branch
+  push:
+    branches: [ main ]
+  # Triggers on pull requests to main branch
+  pull_request:
+    branches: [ main ]
+  # Allows manual workflow dispatch
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # Lint and test job
+  lint-and-test:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Setup Node.js
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Run linting
+      - name: Run ESLint
+        run: npm run lint
+        continue-on-error: false
+
+      # Run type checking if TypeScript is used
+      - name: Type check (if applicable)
+        run: |
+          if [ -f "tsconfig.json" ]; then
+            npm run type-check
+          else
+            echo "No TypeScript configuration found, skipping type check"
+          fi
+
+      # Build project to verify no build errors
+      - name: Build project
+        run: npm run build
+        env:
+          CI: true
+
+  # Security audit job
+  security-audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run security audit
+        run: npm audit --audit-level=moderate
+
+      - name: Check for outdated dependencies
+        run: npm outdated || true
+
+  # Deploy to staging (for PRs)
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [lint-and-test, security-audit]
+    if: github.event_name == 'pull_request'
+    
+    environment:
+      name: staging
+      url: ${{ steps.deploy.outputs.url }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+        env:
+          CI: true
+          VITE_API_URL: ${{ secrets.STAGING_API_URL }}
+
+      - name: Deploy to staging
+        id: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          destination_dir: staging
+
+  # Deploy to production (for main branch)
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [lint-and-test, security-audit]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    environment:
+      name: production
+      url: https://thademinfra.tech
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+        env:
+          CI: true
+          VITE_API_URL: ${{ secrets.PRODUCTION_API_URL }}
+
+      # Deploy to Vercel (preferred for React apps)
+      - name: Deploy to Vercel
+        uses: vercel/action@v1
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./
+          vercel-args: '--prod'
+
+      # Alternative: Deploy to GitHub Pages (fallback)
+      - name: Deploy to GitHub Pages
+        if: failure()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          repository_name: Nithin-Thadem/nt-portfolio
+
+  # Performance and accessibility tests
+  performance-test:
+    name: Performance and Accessibility Tests
+    runs-on: ubuntu-latest
+    needs: deploy-production
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Wait for deployment
+        run: sleep 60
+
+      - name: Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            https://thademinfra.tech
+            https://thademinfra.tech/about
+          configPath: '.lighthouserc.json'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  # Notify on success/failure
+  notify:
+    name: Notify Deployment Status
+    runs-on: ubuntu-latest
+    needs: [deploy-production]
+    if: always() && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Notify on success
+        if: needs.deploy-production.result == 'success'
+        run: |
+          echo "✅ Deployment successful!"
+          echo "🌐 Portfolio is live at https://thademinfra.tech"
+
+      - name: Notify on failure
+        if: needs.deploy-production.result == 'failure'
+        run: |
+          echo "❌ Deployment failed!"
+          echo "🔍 Check the logs for more information"
+          exit 1

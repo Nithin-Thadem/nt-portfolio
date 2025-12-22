@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🐛 Report a Bug
+    url: https://github.com/Nithin-Thadem/nt-portfolio/issues/new?assignees=&labels=bug&template=bug_report.md
+    about: Report a technical issue or unexpected behavior
+  - name: 🚀 Feature Request
+    url: https://github.com/Nithin-Thadem/nt-portfolio/issues/new?assignees=&labels=enhancement&template=feature_request.md
+    about: Suggest a new feature or improvement
+  - name: 💬 General Discussion
+    url: https://github.com/Nithin-Thadem/nt-portfolio/discussions
+    about: Ask questions or share ideas

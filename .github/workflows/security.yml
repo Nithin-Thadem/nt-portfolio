@@ -1,0 +1,184 @@
+name: Security Scan
+
+# Run security scans weekly and on demand
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 6 AM UTC
+  workflow_dispatch:
+  pull_request:
+    branches: [ main ]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  security-scan:
+    name: Security Vulnerability Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Run npm audit
+      - name: Run npm audit
+        run: |
+          echo "Running security audit..."
+          npm audit --json > audit-report.json || true
+          
+          # Check for high/critical vulnerabilities
+          HIGH_VULNS=$(npm audit --json | jq -r '.metadata.vulnerabilities.high // 0')
+          CRITICAL_VULNS=$(npm audit --json | jq -r '.metadata.vulnerabilities.critical // 0')
+          
+          if [ "$HIGH_VULNS" -gt 0 ] || [ "$CRITICAL_VULNS" -gt 0 ]; then
+            echo "❌ High or critical vulnerabilities found!"
+            echo "High: $HIGH_VULNS, Critical: $CRITICAL_VULNS"
+            exit 1
+          else
+            echo "✅ No high or critical vulnerabilities found"
+          fi
+
+      # CodeQL Analysis
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: javascript
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          category: "/language:javascript"
+
+      # Upload audit results
+      - name: Upload audit results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: security-audit-report
+          path: audit-report.json
+          retention-days: 30
+
+  # Snyk security scan
+  snyk-security:
+    name: Snyk Security Scan
+    runs-on: ubuntu-latest
+    if: vars.SNYK_TOKEN != ''
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+
+      - name: Upload Snyk results
+        uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: snyk.sarif
+
+  # Dependency check
+  dependency-check:
+    name: Dependency Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for outdated packages
+        run: |
+          echo "Checking for outdated dependencies..."
+          npm outdated || echo "No outdated packages or command failed"
+
+      - name: Check package security
+        run: |
+          echo "Checking individual package security..."
+          npm ls --depth=0 | grep -E '^[└├]' | while read line; do
+            package=$(echo $line | awk '{print $2}')
+            if [ "$package" != "" ]; then
+              audit_result=$(npm audit --json | jq -r ".advisories | to_entries[] | select(.value.module_name == \"$package\") | .value.severity")
+              if [ "$audit_result" != "" ]; then
+                echo "⚠️  $package has $audit_result severity issues"
+              fi
+            fi
+          done
+
+  # Create security issue if vulnerabilities found
+  create-security-issue:
+    name: Create Security Issue
+    runs-on: ubuntu-latest
+    needs: [security-scan]
+    if: failure() && github.event_name == 'schedule'
+    
+    steps:
+      - name: Create security issue
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🚨 Security vulnerabilities detected',
+              body: `
+              ## Security Alert
+              
+              Automated security scan has detected vulnerabilities in the repository.
+              
+              ### Action Required
+              - [ ] Review security scan results
+              - [ ] Update vulnerable dependencies
+              - [ ] Test application after updates
+              - [ ] Deploy security fixes
+              
+              ### Scan Details
+              - **Scan Type**: Scheduled weekly scan
+              - **Date**: ${new Date().toISOString()}
+              - **Trigger**: Automated security workflow
+              
+              ### Next Steps
+              1. Check the [Actions tab](https://github.com/${{ github.repository }}/actions) for detailed scan results
+              2. Review the audit reports and security recommendations
+              3. Update dependencies to secure versions
+              4. Run tests to ensure compatibility
+              5. Deploy security patches
+              
+              ---
+              
+              📅 This issue was created automatically by the security scan workflow.
+              🔒 Please address this promptly to maintain security standards.
+              `,
+              labels: ['security', 'urgent', 'automated']
+            })
