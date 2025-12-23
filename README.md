@@ -1,438 +1,514 @@
 <div align="center">
 
-```
-   ╔═══════════════════════════════════════════════════════════════════════════╗
-   ║                                                                           ║
-   ║    ███╗   ██╗██╗████████╗██╗  ██╗██╗███╗   ██╗    ████████╗██╗  ██╗       ║
-   ║    ████╗  ██║██║╚══██╔══╝██║  ██║██║████╗  ██║    ╚══██╔══╝██║  ██║       ║
-   ║    ██╔██╗ ██║██║   ██║   ███████║██║██╔██╗ ██║       ██║   ███████║       ║
-   ║    ██║╚██╗██║██║   ██║   ██╔══██║██║██║╚██╗██║       ██║   ██╔══██║       ║
-   ║    ██║ ╚████║██║   ██║   ██║  ██║██║██║ ╚████║       ██║   ██║  ██║       ║
-   ║    ╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝       ╚═╝   ╚═╝  ╚═╝       ║
-   ║                                                                           ║
-   ║                        THADEM                                             ║
-   ║                                                                           ║
-   ║              🚀 DevOps Engineer & Cloud Architect 🌌                     ║
-   ║                                                                           ║
-   ╚═══════════════════════════════════════════════════════════════════════════╝
-```
+<!-- Animated Header -->
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0d1117,50:00d4ff,100:7c3aed&height=300&section=header&text=NITHIN%20THADEM&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=DevOps%20Engineer%20%7C%20Cloud%20Architect%20%7C%20Infrastructure%20Wizard&descAlignY=55&descAlign=50&descSize=20" width="100%"/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=28&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=true&multiline=true&repeat=false&width=800&height=100&lines=Architecting+Cloud+Infrastructure;Building+Scalable+Systems;Automating+the+Future" alt="Typing SVG" />
-
-```ascii
-    .       *        .       *    .   *     .     *  .    *   .  *   .
-  .    *   .  __..--''``\--....___   _ ...__   .   *    .   *   .   *  .
-      .    ./,‗,‗,‗,‗,‗,‗,‗`-._  ``-....__,‗,‗,‗,‗,‗,‗-..   *  .   *    .
- *   .   ././/‗/‗/‗/‗/‗/‗/‗/‗/‗/`-._    `-._``--..._,‗,‗,‗-._   .  *   .
-    .    `/‗/‗/‗/‗/‗/‗/‗/‗/‗/‗/‗/‗/‗`-._    `-._`--...__,‗,‗,‗`-.   *
- *    . ,'‗,'‗,'‗,'‗,'‗,'‗,'‗,'‗,'‗,'‗,'‗,'‗`-._  `-._`--..__,‗,‗,‗` .
+<!-- Glowing Terminal Animation -->
+```
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣴⣶⣶⣶⣶⣦⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⡿⠿⠿⠿⠿⠿⠿⠿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⠃⠀ > INITIALIZING SYSTEM...   ⠀⠈⣿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡏⠀⠀ > LOADING DEVOPS MODULE    ⠀⠀⢸⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡇⠀⠀ > KUBERNETES: ONLINE ✓     ⠀⠀⢸⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡇⠀⠀ > TERRAFORM: READY ✓      ⠀⠀⢸⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡇⠀⠀ > PIPELINE: DEPLOYED ✓    ⠀⠀⢸⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⡀⠀ > WELCOME, OPERATOR       ⠀⢀⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⣿⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣶⣦⣤⣤⣤⣴⣶⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠛⠿⠿⠿⠿⠛⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ```
 
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-thademinfra.tech-00D9FF?style=for-the-badge&logo=google-chrome&logoColor=white)](https://thademinfra.tech)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/thadem-n-790bb520a)
-[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:nithin.thadem@gmail.com)
-[![Location](https://img.shields.io/badge/📍_Location-Pisa,_Italy-00FF00?style=for-the-badge)](https://maps.google.com/?q=Pisa,Italy)
+<!-- Animated Typing -->
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=00D4FF&center=true&vCenter=true&multiline=true&repeat=false&random=false&width=800&height=100&lines=%E2%9A%A1+Automating+Infrastructure+at+Scale;%F0%9F%8C%8D+Multi-Cloud+%7C+Kubernetes+%7C+GitOps" alt="Typing SVG" /></a>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700">
+<!-- Animated Badges Row -->
+<p>
+<a href="https://thademinfra.tech"><img src="https://img.shields.io/badge/PORTFOLIO-thademinfra.tech-00D4FF?style=for-the-badge&logo=google-chrome&logoColor=white&labelColor=0d1117" alt="Portfolio"/></a>
+<a href="https://linkedin.com/in/thadem-n-790bb520a"><img src="https://img.shields.io/badge/LINKEDIN-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0d1117" alt="LinkedIn"/></a>
+<a href="mailto:nithin.thadem@gmail.com"><img src="https://img.shields.io/badge/EMAIL-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0d1117" alt="Email"/></a>
+<a href="https://github.com/Nithin-Thadem"><img src="https://img.shields.io/badge/GITHUB-Follow-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117" alt="GitHub"/></a>
+</p>
+
+<!-- Status Badges -->
+<p>
+<img src="https://img.shields.io/badge/STATUS-Available_for_Hire-00FF00?style=flat-square&labelColor=0d1117"/>
+<img src="https://img.shields.io/badge/LOCATION-Pisa,_Italy_🇮🇹-FF6B6B?style=flat-square&labelColor=0d1117"/>
+<img src="https://img.shields.io/badge/EXPERIENCE-3+_Years-7C3AED?style=flat-square&labelColor=0d1117"/>
+<img src="https://komarev.com/ghpvc/?username=Nithin-Thadem&color=00D4FF&style=flat-square&label=PROFILE+VIEWS"/>
+</p>
+
+<!-- Cool Divider -->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+</div>
+
+<!-- ABOUT SECTION -->
+## <img src="https://user-images.githubusercontent.com/74038190/216122041-518ac897-8d92-4c6b-9b3f-ca01dcaf38ee.png" width="30" /> &nbsp;About Me
+
+<img align="right" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="350"/>
+
+```javascript
+const nithin = {
+    role: "Senior DevOps Engineer",
+    location: "Pisa, Italy 🇮🇹",
+    focus: ["Cloud Architecture", "Kubernetes", "CI/CD", "IaC"],
+
+    currentlyWorking: {
+        company: "Millennium S.p.A.",
+        on: "Healthcare EMR Infrastructure",
+        with: ["Azure", "Kubernetes", "GitLab", "Kafka"]
+    },
+
+    achievements: {
+        uptime: "99.9%",
+        costReduction: "35%",
+        deploymentSpeed: "10x faster",
+        automatedTasks: "90%"
+    },
+
+    motto: "Automate Everything, Break Nothing"
+};
+```
+
+<br clear="right"/>
+
+<!-- STATS SECTION -->
+## <img src="https://user-images.githubusercontent.com/74038190/216122069-5b8169d7-1d8e-4a13-b245-a8e4176c99f8.png" width="30" /> &nbsp;GitHub Analytics
+
+<div align="center">
+<p>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Nithin-Thadem&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00D4FF&icon_color=7C3AED&text_color=ffffff&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Nithin-Thadem&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00D4FF&text_color=ffffff"/>
+</p>
+
+<!-- GitHub Streak -->
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Nithin-Thadem&theme=tokyonight&hide_border=true&background=0d1117&stroke=00D4FF&ring=7C3AED&fire=FF6B6B&currStreakLabel=00D4FF" alt="GitHub Streak" />
+
+<!-- Activity Graph -->
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Nithin-Thadem&custom_title=Nithin's%20Contribution%20Graph&bg_color=0d1117&color=00D4FF&line=7C3AED&point=FF6B6B&area_color=00D4FF&area=true&hide_border=true" width="100%"/>
+
+<!-- Trophies -->
+<img src="https://github-profile-trophy.vercel.app/?username=Nithin-Thadem&theme=tokyonight&no-frame=true&no-bg=true&column=7&margin-w=15" width="100%"/>
+
+</div>
+
+<!-- SNAKE ANIMATION -->
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nithin-Thadem/Nithin-Thadem/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Nithin-Thadem/Nithin-Thadem/output/github-snake.svg" />
+  <img alt="github-snake" src="https://raw.githubusercontent.com/Nithin-Thadem/Nithin-Thadem/output/github-snake.svg" />
+</picture>
+</div>
+
+---
+
+<!-- TECH STACK -->
+## <img src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif" width="30" /> &nbsp;Tech Arsenal
+
+<div align="center">
+
+### ☁️ Cloud Platforms
+<p>
+<img src="https://skillicons.dev/icons?i=azure,aws,gcp&theme=dark" />
+</p>
+
+### 🐳 Container & Orchestration
+<p>
+<img src="https://skillicons.dev/icons?i=docker,kubernetes&theme=dark" />
+<img src="https://img.shields.io/badge/Helm-0F1689?style=for-the-badge&logo=helm&logoColor=white"/>
+<img src="https://img.shields.io/badge/ArgoCD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white"/>
+</p>
+
+### 🔧 Infrastructure & Automation
+<p>
+<img src="https://skillicons.dev/icons?i=terraform,ansible,linux,bash&theme=dark" />
+</p>
+
+### 🔄 CI/CD & GitOps
+<p>
+<img src="https://skillicons.dev/icons?i=githubactions,gitlab,jenkins&theme=dark" />
+</p>
+
+### 📊 Monitoring & Observability
+<p>
+<img src="https://skillicons.dev/icons?i=grafana,prometheus&theme=dark" />
+<img src="https://img.shields.io/badge/ELK_Stack-005571?style=for-the-badge&logo=elastic&logoColor=white"/>
+<img src="https://img.shields.io/badge/Datadog-632CA6?style=for-the-badge&logo=datadog&logoColor=white"/>
+</p>
+
+### 💻 Development
+<p>
+<img src="https://skillicons.dev/icons?i=python,js,ts,java,react,nodejs&theme=dark" />
+</p>
+
+### 🗄️ Databases & Messaging
+<p>
+<img src="https://skillicons.dev/icons?i=postgres,mongodb,redis,kafka&theme=dark" />
+</p>
 
 </div>
 
 ---
 
-## 🛰️ **MISSION CONTROL** — About Me
-
-```diff
-+ Senior DevOps Engineer architecting cloud infrastructure across the cosmos
-+ Specializing in containerization, automation, and scalable cloud solutions
-+ Operating from Pisa, Italy with 3+ years of interstellar experience
-```
-
-I design and maintain **mission-critical** cloud infrastructure that powers healthcare, education, and technology platforms. From **containerized microservices** to **automated CI/CD pipelines**, I transform complex technical challenges into elegant, scalable solutions.
+<!-- EXPERIENCE SECTION -->
+## <img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" width="30" /> &nbsp;Mission Log
 
 <div align="center">
 
-### 🎯 **CORE DIRECTIVES**
-
-| 🌍 **DOMAIN** | 🔧 **CAPABILITY** |
-|:---|:---|
-| **Cloud Mastery** | Azure • AWS • GCP — Multi-cloud orchestration |
-| **Container Tech** | Kubernetes • Docker • Helm — Orchestration excellence |
-| **Infrastructure** | Terraform • Ansible — Code-driven infrastructure |
-| **CI/CD Pipelines** | GitLab CI/CD • GitHub Actions • ArgoCD |
-| **Observability** | Grafana • Prometheus • ELK Stack — Full-spectrum monitoring |
-| **Security & IAM** | Keycloak • OAuth2 • Firebase — Identity fortress |
+```
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                  ║
+║   ████████╗██╗███╗   ███╗███████╗██╗     ██╗███╗   ██╗███████╗                  ║
+║   ╚══██╔══╝██║████╗ ████║██╔════╝██║     ██║████╗  ██║██╔════╝                  ║
+║      ██║   ██║██╔████╔██║█████╗  ██║     ██║██╔██╗ ██║█████╗                    ║
+║      ██║   ██║██║╚██╔╝██║██╔══╝  ██║     ██║██║╚██╗██║██╔══╝                    ║
+║      ██║   ██║██║ ╚═╝ ██║███████╗███████╗██║██║ ╚████║███████╗                  ║
+║      ╚═╝   ╚═╝╚═╝     ╚═╝╚══════╝╚══════╝╚═╝╚═╝  ╚═══╝╚══════╝                  ║
+║                                                                                  ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
+```
 
 </div>
 
----
-
-## 🛸 **TECHNICAL ARSENAL**
-
-<div align="center">
-
-### ☁️ **CLOUD PLATFORMS**
-
-![Azure](https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)
-![GCP](https://img.shields.io/badge/GCP-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)
+<details>
+<summary><b>🏥 Millennium S.p.A. — Senior DevOps Engineer (Dec 2025 - Present)</b></summary>
+<br>
 
 ```yaml
-Azure: [AKS, Container Apps, App Services, Virtual Networks]
-AWS:   [EKS, EC2, S3, RDS, VPC, Lambda]
-GCP:   [GKE, Cloud Run, Cloud SQL, Compute Engine]
+Company: Millennium S.p.A.
+Role: Senior DevOps Engineer
+Domain: Healthcare Software
+Location: Italy
+
+Stack:
+  Cloud: Azure (AKS, Container Apps)
+  IaC: Terraform, Ansible
+  CI/CD: GitLab CI/CD
+  Messaging: Apache Kafka
+  Auth: Keycloak
+
+Impact:
+  - Leading DevOps transformation for Millewin/Milleweb EMR systems
+  - Serving 18,000+ medical practitioners across Italy
+  - Architecting GDPR-compliant infrastructure
+  - Achieving 99.9% uptime for critical healthcare services
 ```
+</details>
 
-### 🐳 **DEVOPS TOOLCHAIN**
+<details>
+<summary><b>🎓 Aigot — DevOps Consultant (Oct 2024 - Dec 2025)</b></summary>
+<br>
 
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
-![GitLab](https://img.shields.io/badge/GitLab_CI-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white)
-![Ansible](https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white)
-![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
-![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
-![ArgoCD](https://img.shields.io/badge/ArgoCD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
+```yaml
+Company: Aigot
+Role: Freelance DevOps Consultant
+Domain: EdTech SaaS Platform
 
-### 💻 **DEVELOPMENT STACK**
+Stack:
+  Cloud: GCP (GKE, Cloud Run)
+  IaC: Terraform
+  CI/CD: GitHub Actions
+  Monitoring: Prometheus, Grafana
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+Achievements:
+  - 📉 90% reduction in manual infrastructure setup
+  - ⚡ 10x faster deployments with automated pipelines
+  - 💰 35% cloud cost optimization
+  - 📊 99.9% uptime with proactive monitoring
+```
+</details>
 
-### 🗄️ **DATA & MESSAGING**
+<details>
+<summary><b>💼 Zemoso Technologies — DevOps Engineer (Apr 2024 - Oct 2024)</b></summary>
+<br>
 
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=for-the-badge&logo=apache-kafka&logoColor=white)
-![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white)
+```yaml
+Company: Zemoso Technologies
+Role: DevOps Engineer
+Domain: IT Consulting
 
-</div>
+Stack:
+  Cloud: GCP
+  Container: Docker, Kubernetes
+  GitOps: ArgoCD, Jenkins
+  Logging: ELK Stack
+
+Achievements:
+  - 🐳 Containerized legacy applications to Kubernetes
+  - 🔄 Implemented GitOps workflows
+  - ⏱️ 50% reduction in MTTR
+  - 👨‍🏫 Trained 3+ engineers on K8s best practices
+```
+</details>
 
 ---
 
-## 🚀 **MISSION LOG** — Professional Experience
+<!-- ARCHITECTURE SECTION -->
+## <img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="30" /> &nbsp;Infrastructure Architecture
 
 <div align="center">
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                     │
-│  🏥 MILLENNIUM S.P.A. | Healthcare Software                        │
-│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━     │
-│  👨‍🚀 Senior DevOps Engineer                                         │
-│  📅 Dec 2025 - Present                                              │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
-```
+                                    ┌──────────────────────────────────────────────────┐
+                                    │              🌐 PRODUCTION SYSTEM                │
+                                    └──────────────────────────────────────────────────┘
+                                                           │
+                    ┌──────────────────────────────────────┼──────────────────────────────────────┐
+                    │                                      │                                      │
+                    ▼                                      ▼                                      ▼
+        ┌─────────────────────┐             ┌─────────────────────┐             ┌─────────────────────┐
+        │   🔷 CLOUDFLARE     │             │   ⚖️ LOAD BALANCER  │             │   🔐 WAF/DDOS       │
+        │   CDN & DNS         │────────────▶│   Traffic Routing   │◀────────────│   Protection        │
+        └─────────────────────┘             └─────────────────────┘             └─────────────────────┘
+                                                       │
+                                                       ▼
+                              ┌─────────────────────────────────────────────────┐
+                              │            ☸️ KUBERNETES CLUSTER                │
+                              │  ┌─────────────────────────────────────────┐   │
+                              │  │  ┌─────────┐ ┌─────────┐ ┌─────────┐   │   │
+                              │  │  │   🐳    │ │   🐳    │ │   🐳    │   │   │
+                              │  │  │  Pod 1  │ │  Pod 2  │ │  Pod N  │   │   │
+                              │  │  └─────────┘ └─────────┘ └─────────┘   │   │
+                              │  │              Service Mesh              │   │
+                              │  └─────────────────────────────────────────┘   │
+                              │        HPA │ PDB │ Network Policies            │
+                              └─────────────────────────────────────────────────┘
+                                                       │
+                    ┌──────────────────────────────────┼──────────────────────────────────────┐
+                    │                                  │                                      │
+                    ▼                                  ▼                                      ▼
+        ┌─────────────────────┐             ┌─────────────────────┐             ┌─────────────────────┐
+        │   🗄️ DATABASES      │             │   📊 MONITORING     │             │   🔒 SECRETS        │
+        │   PostgreSQL/Mongo  │             │   Prometheus/Grafana│             │   Vault/KMS         │
+        └─────────────────────┘             └─────────────────────┘             └─────────────────────┘
 
-</div>
 
-🎯 **Mission Objectives:**
-- 🔧 Leading DevOps transformation for **Millewin/Milleweb** healthcare EMR systems
-- ☸️ Architecting self-hosted **Kubernetes clusters** and **Azure Container Apps**
-- ⚡ Implementing **GitLab CI/CD pipelines** for Spring Boot microservices
-- 📊 Managing **Apache Kafka** infrastructure for real-time medical data processing
-- 🔐 Securing patient data with **Keycloak identity management**
-
-<div align="center">
-
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                     │
-│  🎓 AIGOT | EdTech SaaS Platform                                    │
-│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
-│  🛠️ Freelance DevOps Consultant                                     │
-│  📅 Oct 2024 - Dec 2025                                             │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
-```
-
-</div>
-
-🎯 **Mission Objectives:**
-- 🏗️ Engineered scalable **AWS EKS infrastructure** for educational platform
-- 📝 Implemented **Terraform-based IaC** reducing manual setup by **90%**
-- 📈 Deployed comprehensive monitoring with **Prometheus/Grafana**
-- 🚀 Automated **Docker CI/CD pipelines** cutting deployment time by **80%**
-
-<div align="center">
-
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                     │
-│  💼 ZEMOSO TECHNOLOGIES | IT Consulting                             │
-│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
-│  ⚙️ DevOps Engineer                                                 │
-│  📅 Apr 2024 - Oct 2024                                             │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
-```
-
-</div>
-
-🎯 **Mission Objectives:**
-- 📦 Containerized legacy applications with **Kubernetes migration**
-- 🔄 Built **GitOps workflows** using ArgoCD and Jenkins
-- 🔍 Centralized logging in **ELK stack** reducing MTTR by **50%**
-
----
-
-## 🎓 **CREDENTIALS & CERTIFICATIONS**
-
-<div align="center">
-
-### 🏆 **Professional Certifications**
-
-| STATUS | CERTIFICATION | ISSUER |
-|:---:|:---|:---:|
-| 🔄 | **Certified Kubernetes Administrator (CKA)** | ![CNCF](https://img.shields.io/badge/CNCF-In_Progress-FFA500?style=flat-square) |
-| 🔄 | **Certified Kubernetes Application Developer (CKAD)** | ![CNCF](https://img.shields.io/badge/CNCF-In_Progress-FFA500?style=flat-square) |
-| ✅ | **Google Cloud Professional Cloud Architect** | ![GCP](https://img.shields.io/badge/GCP-Certified-4285F4?style=flat-square) |
-| ✅ | **AWS Certified Solutions Architect** | ![AWS](https://img.shields.io/badge/AWS-Certified-FF9900?style=flat-square) |
-
-### 📚 **Academic Background**
-
-```
-🎓 Master's Degree
-   → Automation Engineering and Control of Complex Systems
-
-🎓 Bachelor's Degree
-   → Electrical and Electronics Engineering
-
-🎓 Polytechnic
-   → Electrical and Electronics Engineering
+    ╔═══════════════════════════════════════════════════════════════════════════════════════════════════╗
+    ║                                      🔄 CI/CD PIPELINE                                            ║
+    ╠═══════════════════════════════════════════════════════════════════════════════════════════════════╣
+    ║                                                                                                   ║
+    ║   📝 Code ──▶ 🔍 Lint ──▶ 🧪 Test ──▶ 🐳 Build ──▶ 🔒 Scan ──▶ 📦 Push ──▶ 🚀 Deploy            ║
+    ║                                                                                                   ║
+    ║   GitHub ─────────────────── GitHub Actions ─────────────────── GHCR ─────────── Kubernetes      ║
+    ║                                                                                                   ║
+    ╚═══════════════════════════════════════════════════════════════════════════════════════════════════╝
 ```
 
 </div>
 
 ---
 
-## 🌟 **ACHIEVEMENT UNLOCKED**
+<!-- ACHIEVEMENTS -->
+## <img src="https://user-images.githubusercontent.com/74038190/216124356-9c7108bf-65db-4fc0-88be-f2a043149f8d.png" width="30" /> &nbsp;Achievement Unlocked
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
-
-### 🏅 **Hall of Fame**
+| 🏆 Achievement | 📊 Metric | 🎯 Impact |
+|:---:|:---:|:---:|
+| **Cost Optimizer** | 💰 35% | Cloud spend reduction |
+| **Speed Demon** | ⚡ 10x | Faster deployments |
+| **Reliability King** | 📈 99.9% | Uptime achieved |
+| **Automation Hero** | 🤖 90% | Manual tasks eliminated |
+| **Team Builder** | 👥 10+ | Engineers mentored |
 
 </div>
 
-```diff
-🏆 Infrastructure Optimization
-   └─ Reduced cloud costs by 35% through intelligent resource optimization
-
-🏆 Deployment Efficiency
-   └─ Cut deployment time from hours to minutes with automated pipelines
-
-🏆 System Reliability
-   └─ Maintained 99.9% uptime SLA across production systems
-
-🏆 Automation Success
-   └─ Eliminated 90% of manual infrastructure tasks through IaC
-
-🏆 Team Leadership
-   └─ Trained 10+ engineers on DevOps best practices and cloud architecture
-```
-
----
-
-## 📡 **COMMUNICATION CHANNELS**
-
 <div align="center">
 
 ```
-╔══════════════════════════════════════════════════════════════════╗
-║                                                                  ║
-║  📧 EMAIL        → nithin.thadem@gmail.com                       ║
-║  💼 LINKEDIN     → linkedin.com/in/thadem-n-790bb520a            ║
-║  🌐 PORTFOLIO    → thademinfra.tech                              ║
-║  📍 LOCATION     → Pisa, Italy 🇮🇹                               ║
-║  🔖 STATUS       → Available for Opportunities                   ║
-║                                                                  ║
-╚══════════════════════════════════════════════════════════════════╝
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀
+    ⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⠟⠉   🏆 HALL OF FAME 🏆   ⠉⠻⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀
+    ⠀⠀⠀⢸⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⡇⠀⠀⠀
+    ⠀⠀⠀⠈⣿⣿⣿⣿⠀⠀⠀💎 Legendary DevOps ⠀⠀⠀⠀⣿⣿⣿⣿⠁⠀⠀⠀
+    ⠀⠀⠀⠀⢻⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⡟⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠻⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⠟⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣷⣦⣄⣀⣀⣀⣀⣠⣴⣾⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ```
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer&text=Let's%20Build%20Something%20Amazing&fontSize=35&fontColor=fff&animation=twinkling&fontAlignY=70" width="100%"/>
 
 </div>
 
 ---
 
-## 🔧 **INFRASTRUCTURE & DEVOPS SETUP**
+<!-- CERTIFICATIONS -->
+## <img src="https://user-images.githubusercontent.com/74038190/216122028-c05b52fb-983e-4ee8-8811-6f30cd9ea5d5.png" width="30" /> &nbsp;Certifications
 
 <div align="center">
 
-### 🏗️ **Architecture Overview**
+<table>
+<tr>
+<td align="center" width="50%">
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                           PRODUCTION ARCHITECTURE                            │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐ │
-│  │   GitHub    │───▶│  GitHub     │───▶│   Docker    │───▶│   Cloud     │ │
-│  │   Repo      │    │  Actions    │    │   Registry  │    │   Run/GKE   │ │
-│  └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘ │
-│        │                   │                                      │         │
-│        │                   ▼                                      ▼         │
-│        │          ┌─────────────┐                        ┌─────────────┐   │
-│        └─────────▶│  Terraform  │                        │  Cloudflare │   │
-│                   │  IaC        │                        │  CDN        │   │
-│                   └─────────────┘                        └─────────────┘   │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+### ✅ Achieved
+<br>
+<img src="https://img.shields.io/badge/Google_Cloud-Professional_Cloud_Architect-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white"/>
+<br><br>
+<img src="https://img.shields.io/badge/AWS-Certified_Developer_Associate-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white"/>
+
+</td>
+<td align="center" width="50%">
+
+### 🔄 In Progress
+<br>
+<img src="https://img.shields.io/badge/CKA-Kubernetes_Administrator-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white"/>
+<br><br>
+<img src="https://img.shields.io/badge/CKAD-Kubernetes_Developer-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white"/>
+
+</td>
+</tr>
+</table>
 
 </div>
 
-### 📦 **Quick Start**
+---
+
+<!-- PROJECT STRUCTURE -->
+## <img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="30" /> &nbsp;Repository Structure
+
+```
+🚀 nt-portfolio/
+│
+├── 📂 .github/
+│   └── 📂 workflows/
+│       ├── 🔄 ci-cd.yml              # Main CI/CD pipeline
+│       ├── 🐳 docker-build.yml       # Docker build & push
+│       ├── 🔒 security.yml           # Security scanning
+│       └── 📦 release.yml            # Release automation
+│
+├── 📂 terraform/
+│   ├── 📄 main.tf                    # GCP infrastructure
+│   ├── 📄 variables.tf               # Configuration variables
+│   └── 📄 terraform.tfvars.example   # Example config
+│
+├── 📂 k8s/
+│   └── 📄 deployment.yaml            # K8s manifests (Deploy, Svc, Ingress, HPA)
+│
+├── 📂 nginx/
+│   ├── 📄 nginx.conf                 # Main nginx config
+│   └── 📄 default.conf               # Server configuration
+│
+├── 📂 monitoring/
+│   └── 📄 prometheus.yml             # Prometheus scrape config
+│
+├── 📂 src/                           # React application source
+│
+├── 🐳 Dockerfile                     # Multi-stage Docker build
+├── 🐳 docker-compose.yml             # Local development setup
+├── 📄 Makefile                       # DevOps automation commands
+└── 📄 README.md                      # You are here! 👋
+```
+
+---
+
+<!-- QUICK START -->
+## <img src="https://user-images.githubusercontent.com/74038190/212257460-738ff738-247f-4445-a718-cdd0ca76e2db.gif" width="30" /> &nbsp;Quick Start
+
+<div align="center">
 
 ```bash
-# Clone the repository
-git clone https://github.com/Nithin-Thadem/nt-portfolio.git
-cd nt-portfolio
+# 🔽 Clone the repository
+git clone https://github.com/Nithin-Thadem/nt-portfolio.git && cd nt-portfolio
 
-# Install dependencies
+# 📦 Install dependencies
 npm install
 
-# Start development server
+# 🚀 Start development server
 npm run dev
 
-# Build for production
-npm run build
-```
-
-### 🐳 **Docker Commands**
-
-```bash
-# Build and run with Docker
-docker build -t portfolio --target production .
-docker run -d -p 8080:8080 portfolio
-
-# Using Docker Compose
-docker-compose up -d production
-
-# Development with hot reload
+# 🐳 Or run with Docker
 docker-compose up -d dev
 ```
 
-### ☸️ **Kubernetes Deployment**
+</div>
+
+<details>
+<summary><b>🐳 Docker Commands</b></summary>
+
+```bash
+# Build production image
+docker build -t portfolio --target production .
+
+# Run production container
+docker run -d -p 8080:8080 portfolio
+
+# Build and run with compose
+docker-compose up -d production
+```
+</details>
+
+<details>
+<summary><b>☸️ Kubernetes Deployment</b></summary>
 
 ```bash
 # Deploy to Kubernetes
 kubectl apply -f k8s/
 
-# Check deployment status
+# Check status
 kubectl get pods,svc,ingress -l app=portfolio
 
 # View logs
 kubectl logs -f -l app=portfolio
 ```
+</details>
 
-### 🏗️ **Terraform Infrastructure**
+<details>
+<summary><b>🏗️ Terraform Infrastructure</b></summary>
 
 ```bash
 # Initialize Terraform
-cd terraform
-terraform init
+cd terraform && terraform init
 
-# Plan infrastructure changes
+# Plan changes
 terraform plan -out=tfplan
 
 # Apply infrastructure
 terraform apply tfplan
 ```
-
-### 🔄 **CI/CD Pipeline**
-
-| Stage | Description | Status |
-|:---:|:---|:---:|
-| 🔍 | **Lint & Test** | ![Lint](https://img.shields.io/badge/ESLint-Passing-success?style=flat-square) |
-| 🔒 | **Security Scan** | ![Security](https://img.shields.io/badge/Snyk-Protected-blueviolet?style=flat-square) |
-| 🐳 | **Docker Build** | ![Docker](https://img.shields.io/badge/Multi--arch-AMD64%20%7C%20ARM64-blue?style=flat-square) |
-| 🚀 | **Deploy** | ![Deploy](https://img.shields.io/badge/Vercel-Auto%20Deploy-black?style=flat-square) |
-| 📊 | **Monitoring** | ![Uptime](https://img.shields.io/badge/Uptime-99.9%25-brightgreen?style=flat-square) |
-
-### 📁 **Project Structure**
-
-```
-nt-portfolio/
-├── .github/workflows/     # CI/CD pipelines
-│   ├── ci-cd.yml         # Main pipeline
-│   ├── docker-build.yml  # Docker build & push
-│   └── security.yml      # Security scanning
-├── terraform/            # Infrastructure as Code
-│   ├── main.tf          # GCP resources
-│   ├── variables.tf     # Configuration
-│   └── terraform.tfvars.example
-├── k8s/                  # Kubernetes manifests
-│   └── deployment.yaml  # K8s deployment, service, ingress
-├── nginx/               # Nginx configuration
-│   ├── nginx.conf
-│   └── default.conf
-├── monitoring/          # Observability configs
-│   └── prometheus.yml
-├── src/                 # React application
-├── Dockerfile           # Multi-stage Docker build
-├── docker-compose.yml   # Docker Compose config
-└── Makefile            # DevOps automation commands
-```
-
-### 🛠️ **Makefile Commands**
-
-```bash
-make help              # Show all available commands
-make dev               # Start development server
-make build             # Build production bundle
-make docker-build      # Build Docker image
-make docker-run        # Run Docker container
-make terraform-plan    # Plan infrastructure changes
-make k8s-deploy        # Deploy to Kubernetes
-make ci-security       # Run security checks
-```
+</details>
 
 ---
 
-## 💫 **ABOUT THIS PORTFOLIO**
+<!-- CONNECT -->
+## <img src="https://user-images.githubusercontent.com/74038190/235294012-0a55e343-37ad-4b0f-924f-c8431d9d2483.gif" width="30" /> &nbsp;Let's Connect
 
 <div align="center">
 
-*This interactive 3D portfolio showcases DevOps expertise through engaging visual design*
-*Built with modern web technologies demonstrating full-stack proficiency*
+<a href="https://thademinfra.tech">
+<img src="https://img.shields.io/badge/🌐_PORTFOLIO-thademinfra.tech-00D4FF?style=for-the-badge&labelColor=0d1117" height="35"/>
+</a>
+<a href="https://linkedin.com/in/thadem-n-790bb520a">
+<img src="https://img.shields.io/badge/LINKEDIN-Nithin_Thadem-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0d1117" height="35"/>
+</a>
+<a href="mailto:nithin.thadem@gmail.com">
+<img src="https://img.shields.io/badge/EMAIL-nithin.thadem@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0d1117" height="35"/>
+</a>
+<a href="https://github.com/Nithin-Thadem">
+<img src="https://img.shields.io/badge/GITHUB-Nithin--Thadem-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117" height="35"/>
+</a>
 
-**Tech Stack:** React • Three.js • GSAP • Tailwind CSS • Vite
-
-### 🛡️ **Infrastructure Stack**
-
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
-![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
+<br><br>
 
 ```
-    *  .  *       .             *
-        .      *        *    .       *
-   .       *        .    *       .       *
-*    .  *    ╔═══════════════════════════╗  *   .   *
-      .      ║  © 2025 Nithin Thadem     ║      .
-   *    .    ║  All rights reserved      ║   *     .
-        .    ╚═══════════════════════════╝        .
-    *      .        *         .       *      .
-  .   *        .        *          .     *
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                   ║
+║   "Infrastructure as Code isn't just a practice, it's a philosophy.              ║
+║    Every commit is a step towards infinite scalability."                          ║
+║                                                                                   ║
+║                                              — Nithin Thadem                      ║
+║                                                                                   ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
 ```
-
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000">
-
-### ⭐ **If you find my work interesting, consider starring this repository!** ⭐
-
-![Profile Views](https://komarev.com/ghpvc/?username=nithinthadem&color=00D9FF&style=for-the-badge&label=VISITORS)
-![GitHub followers](https://img.shields.io/github/followers/nithinthadem?style=for-the-badge&color=00D9FF)
 
 </div>
 
@@ -440,14 +516,17 @@ make ci-security       # Run security checks
 
 <div align="center">
 
-```
-   ╔═══════════════════════════════════════════════════════════════════╗
-   ║                                                                   ║
-   ║           ✨ Thank you for visiting my portfolio! ✨             ║
-   ║                                                                   ║
-   ║              Let's connect and build the future! 🚀              ║
-   ║                                                                   ║
-   ╚═══════════════════════════════════════════════════════════════════╝
-```
+<!-- Footer Animation -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7c3aed,50:00d4ff,100:0d1117&height=120&section=footer&animation=twinkling"/>
+
+<br>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=400&size=18&duration=4000&pause=1000&color=00D4FF&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=50&lines=%E2%AD%90+Star+this+repo+if+you+found+it+useful!+%E2%AD%90" alt="Typing SVG" />
+
+<br>
+
+**Made with 💙 and lots of ☕ by Nithin Thadem**
+
+<sub>© 2025 Nithin Thadem. All rights reserved.</sub>
 
 </div>
