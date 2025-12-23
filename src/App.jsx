@@ -32,7 +32,7 @@ const PortfolioPage = () => (
         <Footer />
         <ScrollToTop />
         <InfraStatus />
-    </>
+</>
 );
 
 const App = () => (

@@ -24,11 +24,16 @@ const NavBar = () => {
   return (
     <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner">
-        <a href="#hero" className="logo">
+        <a href="#hero" className="logo flex items-center gap-2">
           <span className="logo-text">
             <span className="logo-first">Nithin</span>
             <span className="logo-last">T</span>
           </span>
+          <img
+            src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif"
+            alt="Animated wave"
+            className="w-16 h-10 object-cover rounded hidden md:block"
+          />
         </a>
 
         <nav className="desktop">

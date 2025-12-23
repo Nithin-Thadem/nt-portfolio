@@ -6,8 +6,8 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="flex flex-col justify-center">
-          <Link 
-            to="/terms-and-conditions" 
+          <Link
+            to="/terms-and-conditions"
             className="hover:text-blue-400 transition-colors duration-300"
           >
             Terms & Conditions

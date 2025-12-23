@@ -9,7 +9,7 @@ const ContactExperience = () => {
       shadows 
       camera={{ position: [0, 3, 7], fov: 45 }}
       onCreated={({ gl }) => {
-        gl.setClearColor('#0f172a'); // Dark background
+        gl.setClearColor('#0E0E10'); // 👈 Set background to deep grey
       }}
     >
       {/* Base ambient light */}
@@ -31,9 +31,6 @@ const ContactExperience = () => {
         castShadow
       />
 
-      {/* Optional: Point light for extra highlights */}
-      <pointLight position={[0, 4, 4]} intensity={1} color="#ffffff" />
-
       <OrbitControls
         enableZoom={false}
         minPolarAngle={Math.PI / 5}
@@ -47,7 +44,7 @@ const ContactExperience = () => {
           rotation={[-Math.PI / 2, 0, 0]}
         >
           <planeGeometry args={[30, 30]} />
-          <meshStandardMaterial color="#0f172a" />
+          <meshStandardMaterial color="#0E0E10" /> {/* 👈 Floor matches background */}
         </mesh>
       </group>
 

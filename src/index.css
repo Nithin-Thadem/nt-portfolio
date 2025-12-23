@@ -669,6 +669,11 @@ section {
       img {
         @apply inline-block;
       }
+
+      /* Fix GitHub logo visibility */
+      a[href*="github"] img {
+        @apply brightness-0 invert w-5 h-5 md:w-6 md:h-6;
+      }
     }
   }
 }
