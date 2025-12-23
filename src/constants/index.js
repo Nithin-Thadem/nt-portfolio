@@ -424,6 +424,11 @@ const testimonials = [
 
 const socialImgs = [
   {
+    name: "github",
+    url: "https://github.com/Nithin-Thadem",
+    imgPath: "/images/github.svg",
+  },
+  {
     name: "insta",
     url: "https://www.instagram.com/nitin_yerola?igsh=MTJ3ZGd6OXQydzNzeg%3D%3D&utm_source=qr",
     imgPath: "/images/insta.png",

@@ -1,0 +1,33 @@
+# =============================================================================
+# Terraform Variables Example File
+# Copy this file to terraform.tfvars and fill in your values
+# =============================================================================
+
+# GCP Project Configuration
+project_id  = "your-gcp-project-id"
+region      = "europe-west1"
+zone        = "europe-west1-b"
+environment = "prod"
+
+# Network Configuration
+subnet_cidr   = "10.0.0.0/20"
+pods_cidr     = "10.1.0.0/16"
+services_cidr = "10.2.0.0/20"
+master_cidr   = "172.16.0.0/28"
+
+# GKE Configuration
+enable_autopilot  = true
+node_machine_type = "e2-medium"
+min_node_count    = 1
+max_node_count    = 3
+
+# Application Configuration
+container_image     = "ghcr.io/nithin-thadem/nt-portfolio:latest"
+deploy_to_cloud_run = false
+
+# Domain Configuration
+domain_name = "thademinfra.tech"
+
+# Monitoring Configuration
+enable_monitoring = true
+alert_email       = "your-email@example.com"

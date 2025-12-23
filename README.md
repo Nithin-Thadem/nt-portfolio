@@ -263,6 +263,141 @@ GCP:   [GKE, Cloud Run, Cloud SQL, Compute Engine]
 
 ---
 
+## 🔧 **INFRASTRUCTURE & DEVOPS SETUP**
+
+<div align="center">
+
+### 🏗️ **Architecture Overview**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           PRODUCTION ARCHITECTURE                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐ │
+│  │   GitHub    │───▶│  GitHub     │───▶│   Docker    │───▶│   Cloud     │ │
+│  │   Repo      │    │  Actions    │    │   Registry  │    │   Run/GKE   │ │
+│  └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘ │
+│        │                   │                                      │         │
+│        │                   ▼                                      ▼         │
+│        │          ┌─────────────┐                        ┌─────────────┐   │
+│        └─────────▶│  Terraform  │                        │  Cloudflare │   │
+│                   │  IaC        │                        │  CDN        │   │
+│                   └─────────────┘                        └─────────────┘   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+</div>
+
+### 📦 **Quick Start**
+
+```bash
+# Clone the repository
+git clone https://github.com/Nithin-Thadem/nt-portfolio.git
+cd nt-portfolio
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+### 🐳 **Docker Commands**
+
+```bash
+# Build and run with Docker
+docker build -t portfolio --target production .
+docker run -d -p 8080:8080 portfolio
+
+# Using Docker Compose
+docker-compose up -d production
+
+# Development with hot reload
+docker-compose up -d dev
+```
+
+### ☸️ **Kubernetes Deployment**
+
+```bash
+# Deploy to Kubernetes
+kubectl apply -f k8s/
+
+# Check deployment status
+kubectl get pods,svc,ingress -l app=portfolio
+
+# View logs
+kubectl logs -f -l app=portfolio
+```
+
+### 🏗️ **Terraform Infrastructure**
+
+```bash
+# Initialize Terraform
+cd terraform
+terraform init
+
+# Plan infrastructure changes
+terraform plan -out=tfplan
+
+# Apply infrastructure
+terraform apply tfplan
+```
+
+### 🔄 **CI/CD Pipeline**
+
+| Stage | Description | Status |
+|:---:|:---|:---:|
+| 🔍 | **Lint & Test** | ![Lint](https://img.shields.io/badge/ESLint-Passing-success?style=flat-square) |
+| 🔒 | **Security Scan** | ![Security](https://img.shields.io/badge/Snyk-Protected-blueviolet?style=flat-square) |
+| 🐳 | **Docker Build** | ![Docker](https://img.shields.io/badge/Multi--arch-AMD64%20%7C%20ARM64-blue?style=flat-square) |
+| 🚀 | **Deploy** | ![Deploy](https://img.shields.io/badge/Vercel-Auto%20Deploy-black?style=flat-square) |
+| 📊 | **Monitoring** | ![Uptime](https://img.shields.io/badge/Uptime-99.9%25-brightgreen?style=flat-square) |
+
+### 📁 **Project Structure**
+
+```
+nt-portfolio/
+├── .github/workflows/     # CI/CD pipelines
+│   ├── ci-cd.yml         # Main pipeline
+│   ├── docker-build.yml  # Docker build & push
+│   └── security.yml      # Security scanning
+├── terraform/            # Infrastructure as Code
+│   ├── main.tf          # GCP resources
+│   ├── variables.tf     # Configuration
+│   └── terraform.tfvars.example
+├── k8s/                  # Kubernetes manifests
+│   └── deployment.yaml  # K8s deployment, service, ingress
+├── nginx/               # Nginx configuration
+│   ├── nginx.conf
+│   └── default.conf
+├── monitoring/          # Observability configs
+│   └── prometheus.yml
+├── src/                 # React application
+├── Dockerfile           # Multi-stage Docker build
+├── docker-compose.yml   # Docker Compose config
+└── Makefile            # DevOps automation commands
+```
+
+### 🛠️ **Makefile Commands**
+
+```bash
+make help              # Show all available commands
+make dev               # Start development server
+make build             # Build production bundle
+make docker-build      # Build Docker image
+make docker-run        # Run Docker container
+make terraform-plan    # Plan infrastructure changes
+make k8s-deploy        # Deploy to Kubernetes
+make ci-security       # Run security checks
+```
+
+---
+
 ## 💫 **ABOUT THIS PORTFOLIO**
 
 <div align="center">
@@ -271,6 +406,14 @@ GCP:   [GKE, Cloud Run, Cloud SQL, Compute Engine]
 *Built with modern web technologies demonstrating full-stack proficiency*
 
 **Tech Stack:** React • Three.js • GSAP • Tailwind CSS • Vite
+
+### 🛡️ **Infrastructure Stack**
+
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
 
 ```
     *  .  *       .             *

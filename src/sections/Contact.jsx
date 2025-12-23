@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/models/contact/ContactExperience";
-import { useToast } from "../components/Toast";
+import { useToast } from "../hooks/useToast";
 
 const Contact = () => {
   const formRef = useRef(null);

@@ -12,6 +12,7 @@ import Certifications from "./sections/Certifications";
 import TermsAndConditions from "./sections/TermsAndConditions";
 import ScrollProgress from "./components/ScrollProgress";
 import ScrollToTop from "./components/ScrollToTop";
+import InfraStatus from "./components/InfraStatus";
 import { ToastProvider } from "./components/Toast";
 import { Routes, Route } from "react-router-dom";
 
@@ -30,6 +31,7 @@ const PortfolioPage = () => (
         <Contact />
         <Footer />
         <ScrollToTop />
+        <InfraStatus />
     </>
 );
 

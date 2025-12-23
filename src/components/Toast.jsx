@@ -1,7 +1,5 @@
-import { useState, useEffect, createContext, useContext } from "react";
-
-// Toast Context for global access
-const ToastContext = createContext(null);
+import { useState, useEffect } from "react";
+import { ToastContext } from "../hooks/useToast";
 
 /**
  * Toast notification types
@@ -110,17 +108,6 @@ export const ToastProvider = ({ children }) => {
       <ToastContainer toasts={toasts} removeToast={removeToast} />
     </ToastContext.Provider>
   );
-};
-
-/**
- * Hook to use toast notifications
- */
-export const useToast = () => {
-  const context = useContext(ToastContext);
-  if (!context) {
-    throw new Error("useToast must be used within a ToastProvider");
-  }
-  return context;
 };
 
 export default ToastProvider;
