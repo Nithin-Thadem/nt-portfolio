@@ -38,7 +38,7 @@ const Particles = ({ count = 200 }) => {
   });
 
   return (
-    <points ref={mesh}>
+    <points ref={mesh} key={count}>
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"

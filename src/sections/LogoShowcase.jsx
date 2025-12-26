@@ -6,6 +6,7 @@ const LogoIcon = ({ icon }) => {
       <img
           src={icon.imgPath}
           alt={icon.name}
+          loading="lazy"
           className="w-16 h-17"
       />
     </div>

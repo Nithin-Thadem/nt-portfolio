@@ -20,7 +20,7 @@ const Hero = () => {
         {/* Overlay Content */}
         <div className="hero-layout relative z-10">
           {/* LEFT: Hero Content */}
-          <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
+          <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5 relative z-10 xl:pointer-events-none">
             <div className="flex flex-col gap-7">
               <div className="hero-text">
                 <h1>
@@ -44,13 +44,13 @@ const Hero = () => {
                 <h1>that Deliver Results</h1>
               </div>
 
-              <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
+              <p className="text-white-50 md:text-xl relative z-10">
                 Hi, I’m Nithin, a DevOps Engineer based in Italy with a passion
                 for<br />
                 automating infrastructure and building scalable systems.
               </p>
 
-              <Button text="See My Work" className="md:w-80 md:h-16 w-60 h-12" id="counter" />
+              <Button text="See My Work" className="md:w-80 md:h-16 w-60 h-12 relative z-20 pointer-events-auto" id="counter" />
             </div>
           </header>
 

@@ -48,6 +48,7 @@ const TechStack = () => {
         scrollTrigger: {
           trigger: "#skills",
           start: "top center",
+          once: true,
         },
       }
     );

@@ -2,6 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useMediaQuery } from "react-responsive";
 import { Suspense } from "react";
+import * as THREE from "three";
 
 import { Room } from "./Room";
 import HeroLights from "./HeroLights";
@@ -46,17 +47,18 @@ const HeroExperience = () => {
             gl={{
                 antialias: quality.antialias,
                 powerPreference: "high-performance",
+                toneMapping: THREE.ACESFilmicToneMapping,
+                toneMappingExposure: 0.9,
             }}
         >
-            {/* Deep blue ambient light */}
-            <ambientLight intensity={4} color="#90d4ff" />
+            {/* Subtle blue ambient light - reduced for sharper contrast */}
+            <ambientLight intensity={1.5} color="#90d4ff" />
 
-            {/* Configure OrbitControls */}
+            {/* Configure OrbitControls - zoom disabled to not interfere with page scroll */}
             <OrbitControls
                 enablePan={false}
-                enableZoom={!isTablet}
-                maxDistance={20}
-                minDistance={5}
+                enableZoom={false}
+                enableRotate={true}
                 minPolarAngle={Math.PI / 5}
                 maxPolarAngle={Math.PI / 2}
             />

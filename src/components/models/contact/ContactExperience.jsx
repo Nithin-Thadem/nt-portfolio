@@ -1,15 +1,16 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
 
 import Computer from "./Computer";
 
 const ContactExperience = () => {
   return (
-    <Canvas 
-      shadows 
+    <Canvas
+      shadows
       camera={{ position: [0, 3, 7], fov: 45 }}
       onCreated={({ gl }) => {
-        gl.setClearColor('#0E0E10'); // 👈 Set background to deep grey
+        gl.setClearColor('#0E0E10');
       }}
     >
       {/* Base ambient light */}
@@ -44,13 +45,15 @@ const ContactExperience = () => {
           rotation={[-Math.PI / 2, 0, 0]}
         >
           <planeGeometry args={[30, 30]} />
-          <meshStandardMaterial color="#0E0E10" /> {/* 👈 Floor matches background */}
+          <meshStandardMaterial color="#0E0E10" />
         </mesh>
       </group>
 
-      <group scale={0.03} position={[0, -1.49, -2]} castShadow receiveShadow>
-        <Computer />
-      </group>
+      <Suspense fallback={null}>
+        <group scale={0.03} position={[0, -1.49, -2]} castShadow receiveShadow>
+          <Computer />
+        </group>
+      </Suspense>
     </Canvas>
   );
 };

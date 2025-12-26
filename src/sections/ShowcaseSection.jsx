@@ -37,6 +37,7 @@ const AppShowcase = () => {
           scrollTrigger: {
             trigger: card,
             start: "top bottom-=100",
+            once: true,
           },
         }
       );
@@ -49,7 +50,7 @@ const AppShowcase = () => {
         <div className="showcaselayout">
           <div ref={rydeRef} className="first-project-wrapper">
             <div className="image-wrapper">
-              <img src="/images/Restaurants-club.png" alt="Restaurants club Interface" />
+              <img src="/images/Restaurants-club.png" alt="Restaurants club Interface" loading="lazy" />
             </div>
             <div className="text-content">
               <h2>
@@ -67,6 +68,7 @@ const AppShowcase = () => {
                 <img
                   src="/images/thoughtly-project.png"
                   alt="DevOps Automation at Zemoso (Thoughtly)"
+                  loading="lazy"
                 />
               </div>
               <h2>DevOps Automation at Zemoso (Thoughtly)</h2>
@@ -77,7 +79,7 @@ const AppShowcase = () => {
 
             <div className="project" ref={ycDirectoryRef}>
               <div className="image-wrapper bg-[#FFE7EB]">
-                <img src="/images/Cellino-biotech.png" alt="Infrastructure Maintenance at Cellinobio" />
+                <img src="/images/Cellino-biotech.png" alt="Infrastructure Maintenance at Cellinobio" loading="lazy" />
               </div>
               <h2>Infrastructure Maintenance at Cellinobio (Zemoso)</h2>
               <p className="text-white-50 md:text-">

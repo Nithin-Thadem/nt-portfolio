@@ -13,7 +13,7 @@ const Certifications = () => {
         />
 
         {/* Certifications Grid */}
-        <div className="lg:columns-3 md:columns-2 columns-1 mt-16">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-16">
           {certifications.map((certification, index) => {
             console.log("Certification:", certification); // Debug log
             return (
@@ -23,6 +23,7 @@ const Certifications = () => {
                   <img
                     src={certification.imgPath}
                     alt={`${certification.name} Certification`}
+                    loading="lazy"
                     className="size-16 rounded-full object-cover"
                   />
                   <div>

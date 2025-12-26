@@ -28,6 +28,7 @@ const AnimatedCounter = () => {
         scrollTrigger: {
           trigger: "#counter",
           start: "top center",
+          once: true,
         },
         // Add the suffix after counting is complete
         onComplete: () => {

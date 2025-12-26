@@ -14,7 +14,7 @@ export function Room(props) {
     const performanceMode = usePerformanceMode();
     const quality = getQualitySettings(performanceMode);
 
-    // Load the GLB models
+    // Load the GLB models (original high-quality versions)
     const characterGltf = useGLTF("/models/nit.glb");
     const screenGltf = useGLTF("/models/scrn.glb");
 
@@ -100,16 +100,29 @@ export function Room(props) {
 
     return (
         <group {...props}>
-            {/* Enhanced Lighting */}
-            <ambientLight intensity={0.4} color="#ffffff" />
+            {/* Sharper lighting with increased black point and reduced glare */}
+            <ambientLight intensity={0.1} color="#ffffff" />
             <directionalLight
-                position={[1, 1, 1]}
-                intensity={1}
+                position={[2, 3, 2]}
+                intensity={1.2}
+                color="#ffffff"
+                castShadow
+            />
+            <directionalLight
+                position={[-2, 2, -1]}
+                intensity={0.4}
                 color="#ffffff"
             />
             <pointLight
                 position={[5, 5, 5]}
-                intensity={2}
+                intensity={1.0}
+                color="#ffffff"
+            />
+            <spotLight
+                position={[0, 8, 4]}
+                angle={0.4}
+                penumbra={0.3}
+                intensity={0.8}
                 color="#ffffff"
             />
 
